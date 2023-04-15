@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './shop.css';
 import Proudct from '../Projuct/Proudct';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -31,8 +32,7 @@ const Shop = () => {
             </div>
             {/* Carts container  */}
             <div className="carts-container">
-                <h3>Order summury</h3>
-                <p>Selected Items: {cart.length}</p>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );

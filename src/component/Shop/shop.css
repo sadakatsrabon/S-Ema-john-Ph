@@ -9,3 +9,20 @@
     gap: 45px;
     margin: 50px;
 }
+
+/* proceed button styles */
+.btn-porceed{
+    background-color: #ff9900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: aliceblue;
+    margin: 10px auto;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.proceed-link{
+    text-decoration: none;
+}

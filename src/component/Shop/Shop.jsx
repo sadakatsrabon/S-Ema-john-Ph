@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './shop.css';
 import Proudct from '../Projuct/Proudct';
 import Cart from '../Cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsTurnRight } from '@fortawesome/free-solid-svg-icons'
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -54,6 +57,10 @@ const Shop = () => {
         setCart(newCart);
         addToDb(product.id)
     }
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
 
     return (
         <div className='shop-container'>
@@ -69,7 +76,16 @@ const Shop = () => {
             </div>
             {/* Carts container  */}
             <div className="carts-container">
-                <Cart cart={cart}></Cart>
+                <Cart
+                    cart={cart}
+                    handleClearCart={handleClearCart}
+                >
+                    <Link className='proceed-link' to="/order">
+                    <button className='btn-porceed'>Review Order 
+                    <FontAwesomeIcon className='dlt-icon' icon={faArrowsTurnRight} />
+                    </button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
